@@ -12,6 +12,8 @@
 
 <script>
 
+import config from '../../vue.config';
+
 export default {
   name: 'Redirect2Url',
   data() {
@@ -24,15 +26,13 @@ export default {
   methods: {
 
     async fetchTasks(kurl) {
-        
-        const res = await fetch('https://kurl-server.herokuapp.com/getlurl?kurl='+kurl["kurl"], {
+        // fetch the long url for coresponding short url for redirecting
+        const res = await fetch(config.api+'getlurl?kurl='+kurl["kurl"], {
           method:'GET'
         })
         const data = await res.json()
         window.location.href = await data["lurl"]
    
-       
-        
     },
    
   },

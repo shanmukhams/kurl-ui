@@ -8,6 +8,7 @@
     </v-card-text>
       <v-sparkline
         :value="state.ts.y"
+        :labels="state.ts.x"
         :color="color"
         line-width="2"
         padding="16"
@@ -20,6 +21,8 @@
 
 <script>
 
+import config from '../../vue.config';
+
 export default {
   name: 'TimeGraph',
   components: {},
@@ -28,13 +31,13 @@ export default {
   },
   data() {
     return {
-       name:"Trend - Kurl Hits",
+       name:"Kurl Trend",
        color:"white"
     }
   },
   methods:{
     async getstats( kurl){
-        var res = await fetch("https://kurl-server.herokuapp.com/getstats/kurl/ts/"+kurl)
+        var res = await fetch(config.api+"getstats/kurl/ts/"+kurl)
         var data = await res.json()
         this.state.ts["agg"] = data["agg"]
         this.state.ts["x"] = this.state.ts["agg"].map(x=>x.date)
