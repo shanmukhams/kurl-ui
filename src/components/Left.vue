@@ -86,7 +86,7 @@ export default {
      async getKurl() {
        this.state.isStats = false
        console.log(this.state)
-          var res = await fetch(publicPath+'getkurl', {
+          var res = await fetch('https://kurl-server.herokuapp.com/'+'getkurl', {
             method: 'POST',
             headers: {
               'Content-type': 'application/json',
