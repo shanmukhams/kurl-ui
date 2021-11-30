@@ -19,6 +19,7 @@
             outlined
             clearable
             append-outer-icon="mdi-send-circle-outline"
+            @keyup.enter="getKurl"
             @click:append-outer="getKurl"
           ></v-text-field>
       </v-flex>

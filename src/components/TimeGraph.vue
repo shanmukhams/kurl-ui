@@ -39,11 +39,12 @@ export default {
     async getstats( kurl){
         var res = await fetch(config.api+"getstats/kurl/ts/"+kurl)
         var data = await res.json()
+
         this.state.ts["agg"] = data["agg"]
         this.state.ts["x"] = this.state.ts["agg"].map(x=>x.date)
-        
+        this.state.ts["x"].reverse();
         this.state.ts["y"] = this.state.ts["agg"].map(x=>parseInt(x.count))
-        
+        this.state.ts["y"].reverse();
         console.log(this.state.ts)
     }
      
