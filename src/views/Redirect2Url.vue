@@ -41,15 +41,11 @@ export default {
         var kurl = this.$route.params
         console.log(kurl)
         if(kurl['kurl'] != 'undefined'){
-          console.log('hi...')
            await this.fetchTasks(kurl)
         }
         else{
-          console.log('errrror')
-          // window.location.href = "http://localhost:8081/app";
+          console.log('errrror '+this.$route.params)
         }
-        
-        // window.location.replace()
     },
        
   
