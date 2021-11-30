@@ -66,7 +66,7 @@
 
 <script>
 
-import publicPath from '../../vue.config';
+// import publicPath from '../../vue.config';
 import Header from './Header';
 
 
